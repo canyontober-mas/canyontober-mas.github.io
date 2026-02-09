@@ -762,3 +762,45 @@ details[open] summary::after {
     font-size: 0.75rem;
     font-weight: 700;
     m
+}
+
+/* --- ADMIN CONTROLS\ --- */
+
+/* 1. Hide by default (CRITICAL FIX) */
+.edit-btn {
+    display: none; 
+    
+    /* New Polished Look */
+    background-color: white;
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 12px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+    vertical-align: middle;
+}
+
+/* 2. Hover Effect for Admin */
+.edit-btn:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* 3. Show ONLY if body has 'is-admin' class */
+body.is-admin .edit-btn {
+    display: inline-block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* 4. Highlight Editable Areas (Optional visual cue for admins) */
+body.is-admin .card:hover {
+    border-color: #d1d5db; /* Slight grey border on hover to show it's editable */
+}
