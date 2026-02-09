@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toolbox - ADAS OSS</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <!-- Sidebar content same as above -->
+        <img src="../assets/images/index/mas-logo1.jpg" alt="Connect to the vehicle" style="max-width: 250px;">
+        <ul class="nav-links">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="operations.html">Operations Manual</a></li>
+            <li><a href="toolbox.html" class="active">Toolbox</a></li>
+            <li><a href="oem-library.html">OEM Library</a></li>
+            <li><a href="directory.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <h3>Toolbox & Assets</h3>
+        </header>
+
+        <div class="dashboard-grid">
+            
+            <!-- LAPTOP CONFIGURATION -->
+            <div class="card" style="grid-column: span 2;">
+                <h2>IT Hardware: Laptop Configuration</h2>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    
+                    <!-- Laptop 1 -->
+                    <div style="flex:1; background:#f9f9f9; padding:15px; border-radius:6px; min-width:250px;">
+                        <h3>Laptop A (Primary)</h3>
+                        <p style="font-size:0.9rem; color:#555;">Dell Rugged Latitude</p>
+                        <hr style="margin:10px 0; border:0; border-top:1px solid #ddd;">
+                        <strong>Partitions:</strong>
+                        <ul style="padding-left:20px; margin-top:5px; font-size:0.9rem;">
+                            <li>Win 10: General (Chrome, Slack, OPUS)</li>
+                            <li>Win 10: Ford FDRS / GM GDS2</li>
+                            <li>Win 7: Legacy Toyota Techstream</li>
+                        </ul>
+                    </div>
+
+                    <!-- Laptop 2 -->
+                    <div style="flex:1; background:#f9f9f9; padding:15px; border-radius:6px; min-width:250px;">
+                        <h3>Laptop B (Euro/Asian)</h3>
+                        <p style="font-size:0.9rem; color:#555;">Panasonic Toughbook</p>
+                        <hr style="margin:10px 0; border:0; border-top:1px solid #ddd;">
+                        <strong>Partitions:</strong>
+                        <ul style="padding-left:20px; margin-top:5px; font-size:0.9rem;">
+                            <li>Honda i-HDS / Acura</li>
+                            <li>Nissan Consult III+</li>
+                            <li>Subaru SSM3/4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLETS -->
+            <div class="card">
+                <h2>Tablets (Hyundai/Kia)</h2>
+                <div style="background:#fff3e0; padding:10px; border-radius:4px; font-size:0.9rem; margin-bottom:10px;">
+                    <strong>Restricted Use:</strong> These tablets are designated for GDS Mobile (Hyundai/Kia/Genesis) only.
+                </div>
+                <ul style="font-size:0.9rem; line-height:1.6;">
+                    <li><a href="#">How to update GDS Mobile</a></li>
+                    <li><a href="#">VCI II Firmware Recovery Guide</a></li>
+                    <li><a href="#">Splashtop Streamer Setup for Tablets</a></li>
+                </ul>
+            </div>
+
+            <!-- SLIDE DECKS / TRAINING -->
+            <div class="card">
+                <h2>Training Materials</h2>
+                <p style="font-size:0.9rem; margin-bottom:15px;">Slide decks and manuals for van tooling.</p>
+                
+                <div style="display:grid; gap:10px;">
+                    <a href="#" class="action-btn" style="text-align:left;">📄 <strong>Autel IA800</strong> <span style="float:right; color:#777;">PDF</span></a>
+                    <a href="#" class="action-btn" style="text-align:left;">📄 <strong>Target Identification Guide</strong> <span style="float:right; color:#777;">PDF</span></a>
+                    <a href="#" class="action-btn" style="text-align:left;">▶️ <strong>Thrust Angle Theory</strong> <span style="float:right; color:#777;">Video</span></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+	<script src="../script.js"></script> <!-- or src="../script.js" if inside /pages/ folder -->
+</body>
+</html>

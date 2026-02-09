@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directory - ADAS OSS</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <!-- Sidebar content same as above -->
+        <img src="../assets/images/index/mas-logo1.jpg" alt="Connect to the vehicle" style="max-width: 250px;">
+        <ul class="nav-links">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="operations.html">Operations Manual</a></li>
+            <li><a href="toolbox.html">Toolbox</a></li>
+            <li><a href="oem-library.html">OEM Library</a></li>
+            <li><a href="directory.html" class="active">Directory</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <h3>Directory & Support</h3>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Find contact...">
+            </div>
+        </header>
+
+        <div class="dashboard-grid" style="display:block;"> <!-- Block display for contact grid -->
+            
+            <h2 style="margin-bottom:20px; margin-top:10px;">Internal Support</h2>
+            <div class="contact-grid">
+                
+                <!-- Internal Contact 1 -->
+                <div class="contact-card">
+                    <h3>John Doe</h3>
+                    <div class="contact-role">Shop Foreman / Technical Lead</div>
+                    <p style="font-size:0.9rem; color:#555;">Available: 7am - 4pm PST</p>
+                    <div class="contact-actions">
+                        <a href="tel:5551234567" class="action-btn">📞 Call</a>
+                        <a href="#" class="action-btn">💬 Slack</a>
+                    </div>
+                </div>
+
+                <!-- Internal Contact 2 -->
+                <div class="contact-card">
+                    <h3>Jane Smith</h3>
+                    <div class="contact-role">Scheduling / Dispatch</div>
+                    <p style="font-size:0.9rem; color:#555;">Available: 6am - 3pm PST</p>
+                    <div class="contact-actions">
+                        <a href="tel:5559876543" class="action-btn">📞 Call</a>
+                        <a href="mailto:jane@company.com" class="action-btn">✉️ Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-bottom:20px; margin-top:40px;">Brand & Tool Support</h2>
+            <div class="contact-grid">
+                
+                <!-- Tool Support -->
+                <div class="contact-card" style="border-left-color: #ff9800;"> <!-- Different color for external -->
+                    <h3>Autel Support</h3>
+                    <div class="contact-role">Tooling Vendor</div>
+                    <p style="font-size:0.9rem; color:#555;">Account #: 8842-111</p>
+                    <div class="contact-actions">
+                        <a href="tel:18552883587" class="action-btn">📞 1-855-AUTEL-US</a>
+                    </div>
+                </div>
+
+                <!-- Brand Support -->
+                <div class="contact-card" style="border-left-color: #ff9800;">
+                    <h3>FCA / Stellantis</h3>
+                    <div class="contact-role">Secure Gateway / wiTech</div>
+                    <p style="font-size:0.9rem; color:#555;">TechAuthority Help Desk</p>
+                    <div class="contact-actions">
+                        <a href="tel:18001234567" class="action-btn">📞 Support Line</a>
+                        <a href="#" class="action-btn">🌐 Website</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+	<script src="../script.js"></script> <!-- or src="../script.js" if inside /pages/ folder -->
+</body>
+</html>

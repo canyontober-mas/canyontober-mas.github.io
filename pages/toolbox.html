@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toolbox - MAS Portal</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+    <style>
+        /* Local Tab overrides */
+        .tabs { display: flex; border-bottom: 2px solid #ddd; margin-bottom: 20px; overflow-x: auto; }
+        .tab-btn { padding: 15px 20px; background: none; border: none; font-size: 0.95rem; cursor: pointer; white-space: nowrap; }
+        .tab-btn.active { border-bottom-color: var(--primary-color); font-weight: bold; color: var(--primary-color); }
+        .tab-content { display: none; animation: fadeIn 0.3s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+			<img src="../assets/images/index/mas-logo1.jpg" alt="Connect to the vehicle" style="max-width: 250px;">
+        <ul class="nav-links">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="operations.html">Operations Manual</a></li>
+            <li><a href="toolbox.html" class="active">Toolbox</a></li>
+            <li><a href="oem-library.html">OEM Library</a></li>
+            <li><a href="directory.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <h3>Toolbox & Assets</h3>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search Software Versions, Partitions, or Discounts...">
+            </div>
+        </header>
+
+        <div class="dashboard-grid" style="display:block;">
+            
+            <div class="card">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab('software')">Software Center</button>
+                    <button class="tab-btn" onclick="openTab('fleet')">Fleet & Van</button>
+                    <button class="tab-btn" onclick="openTab('it')">IT & Hardware</button>
+                    <button class="tab-btn" onclick="openTab('perks')">Employee Perks</button>
+                    <button class="tab-btn" onclick="openTab('training')">Training</button>
+                </div>
+
+                <!-- TAB 1: SOFTWARE CENTER (The Giant Table) -->
+                <div id="software" class="tab-content active">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                        <h2>Scan Tool Software Levels</h2>
+                        <span style="font-size:0.8rem; color:#666;">Last Updated: Jan 2026</span>
+                    </div>
+                    
+                    <div class="table-container" style="max-height: 70vh; overflow-y: auto;">
+                        <table class="data-table sticky-table-header">
+                            <thead>
+                                <tr>
+                                    <th>OEM / Tool</th>
+                                    <th>Current Version</th>
+                                    <th>Date</th>
+                                    <th>Action / Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- TPMS Section -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>TPMS Tools</strong></td></tr>
+                                <tr>
+                                    <td>Bartec 400SD</td>
+                                    <td>R63.2</td>
+                                    <td>5/1/24</td>
+                                    <td><span class="status-red">Not Supported</span> Request Replacement</td>
+                                </tr>
+                                <tr>
+                                    <td>Bartec 400Pro/500</td>
+                                    <td>R67/R7.0</td>
+                                    <td>5/1/24</td>
+                                    <td><span class="status-warning">EOL 12/24</span></td>
+                                </tr>
+                                
+                                <!-- BMW -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>BMW / Mini</strong></td></tr>
+                                <tr>
+                                    <td>BMW ISTA</td>
+                                    <td>4.56.31</td>
+                                    <td>11/20/25</td>
+                                    <td><a href="#">Update Instructions</a> | ICOM FW: 04-25-42</td>
+                                </tr>
+
+                                <!-- Ford -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Ford / Lincoln</strong></td></tr>
+                                <tr>
+                                    <td>Ford IDS</td>
+                                    <td>132.04 Full</td>
+                                    <td>11/18/25</td>
+                                    <td><a href="#">Download</a> | <span class="status-warning">Install First</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Ford FDRS</td>
+                                    <td>46.5.8</td>
+                                    <td>12/16/25</td>
+                                    <td><a href="#">Download</a> | Works with VCM2/3 or Cardaq 3+</td>
+                                </tr>
+
+                                <!-- GM -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>General Motors</strong></td></tr>
+                                <tr>
+                                    <td>Techline Connect</td>
+                                    <td>25.7.28.0</td>
+                                    <td>7/28/25</td>
+                                    <td>Launch via AC Delco Portal</td>
+                                </tr>
+
+                                <!-- Honda -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Honda / Acura</strong></td></tr>
+                                <tr>
+                                    <td>iHDS</td>
+                                    <td>1.013.003</td>
+                                    <td>1/8/26</td>
+                                    <td><a href="#">Download Manager 2.0</a></td>
+                                </tr>
+
+                                <!-- Hyundai/Kia -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Hyundai / Kia / Genesis</strong></td></tr>
+                                <tr>
+                                    <td>Hyundai GDS Smart</td>
+                                    <td>MNH-02-0056</td>
+                                    <td>9/18/24</td>
+                                    <td>Check Weekly for Updates</td>
+                                </tr>
+                                <tr>
+                                    <td>Kia KDS 2.0</td>
+                                    <td>M-N-K-01-0290</td>
+                                    <td>4/12/24</td>
+                                    <td><a href="#">Update Link</a></td>
+                                </tr>
+
+                                <!-- JLR -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Jaguar Land Rover</strong></td></tr>
+                                <tr>
+                                    <td>JLR SDD</td>
+                                    <td>169.00</td>
+                                    <td>1/6/26</td>
+                                    <td><span class="status-warning">Pathfinder EOL</span> | <a href="#">Download Page</a></td>
+                                </tr>
+
+                                <!-- Mazda -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Mazda</strong></td></tr>
+                                <tr>
+                                    <td>Mazda IDS</td>
+                                    <td>141.00 Full</td>
+                                    <td>12/2/25</td>
+                                    <td>Uninstall Old -> Install New</td>
+                                </tr>
+                                <tr>
+                                    <td>MDARS</td>
+                                    <td>7.8.0</td>
+                                    <td>2/26/24</td>
+                                    <td>Updates on Launch</td>
+                                </tr>
+
+                                <!-- Mercedes -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Mercedes-Benz</strong></td></tr>
+                                <tr>
+                                    <td>Xentry</td>
+                                    <td>24.12.4</td>
+                                    <td>12/4/24</td>
+                                    <td><span class="status-red">DO NOT RUN NEW VERSION</span> Add-ons OK.</td>
+                                </tr>
+
+                                <!-- Nissan -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Nissan / Infiniti</strong></td></tr>
+                                <tr>
+                                    <td>Consult 3+</td>
+                                    <td>251.20</td>
+                                    <td>8/5/25</td>
+                                    <td><a href="#">Update Guide</a> | Needs Login</td>
+                                </tr>
+
+                                <!-- VAG -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>VW / Audi</strong></td></tr>
+                                <tr>
+                                    <td>ODIS</td>
+                                    <td>25.1.1</td>
+                                    <td>10/8/25</td>
+                                    <td><span class="status-red">NO MAJOR UPDATES IN FIELD</span></td>
+                                </tr>
+
+                                <!-- Toyota -->
+                                <tr style="background-color:#eee;"><td colspan="4"><strong>Toyota / Lexus</strong></td></tr>
+                                <tr>
+                                    <td>Techstream</td>
+                                    <td>V18.00.008</td>
+                                    <td>7/6/23</td>
+                                    <td><span class="status-red">Sundowned</span> Final Version.</td>
+                                </tr>
+                                <tr>
+                                    <td>GTS+</td>
+                                    <td>2025.04.002</td>
+                                    <td>11/24/25</td>
+                                    <td>Use Agent Lite to update.</td>
+                                </tr>
+                                <tr>
+                                    <td>Supra ISTA</td>
+                                    <td>V4.51.23</td>
+                                    <td>3/18/25</td>
+                                    <td><a href="#">Install Guide</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TAB 2: FLEET & VAN -->
+                <div id="fleet" class="tab-content">
+                    <h2>Fleet & Van Maintenance</h2>
+                    
+                    <div class="dashboard-grid" style="padding:0; grid-template-columns: 1fr 1fr; gap:20px;">
+                        
+                        <!-- Maintenance Schedule -->
+                        <div>
+                            <h3>Maintenance Schedule</h3>
+                            <p style="font-size:0.9rem;">Utilize trusted local independent repair facilities or Dealer Quicklanes.</p>
+                            <div class="warning-box" style="padding:10px; font-size:0.9rem;">
+                                🚫 <strong>Do NOT use:</strong> Jiffy Lube or Take 5.<br>
+                                🛢️ <strong>Oil:</strong> Synthetic Only.
+                            </div>
+                            <table class="data-table">
+                                <tr>
+                                    <th>Mileage</th>
+                                    <th>Service</th>
+                                </tr>
+                                <tr>
+                                    <td>6,000</td>
+                                    <td>Synthetic Oil, Filter, Tire Rotate</td>
+                                </tr>
+                                <tr>
+                                    <td>24,000</td>
+                                    <td>Engine Air Filter, Cabin Filter</td>
+                                </tr>
+                                <tr>
+                                    <td>60,000</td>
+                                    <td>Trans Fluid, Diff, Coolant</td>
+                                </tr>
+                                <tr>
+                                    <td>100,000</td>
+                                    <td>Spark Plugs, Coil Boots</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Tires & Guidelines -->
+                        <div>
+                            <h3>Tires (Discount Tire)</h3>
+                            <div class="perk-card" style="border-style:solid; border-color:var(--primary-color);">
+                                <span class="perk-logo">Discount / America's Tire</span>
+                                <p><strong>National Account</strong> (10% Off)</p>
+                                <div class="perk-code" onclick="navigator.clipboard.writeText('67677')">Code: 67677</div>
+                                <p style="font-size:0.8rem;">
+                                    Billing: Use Code 67677 (Next-in-line privilege).<br>
+                                    PO Number: Your License Plate.<br>
+                                    <em>Note: Personal purchases must use personal CC.</em>
+                                </p>
+                            </div>
+                            
+                            <h3 style="margin-top:20px;">Preferred Tires</h3>
+                            <ul>
+                                <li><strong>Transit/Promaster:</strong> Firestone Transforce HT</li>
+                                <li><strong>Transit Connect:</strong> Pathfinder HT (Contact RM)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="info-box" style="margin-top:20px;">
+                        <strong>General Guidelines:</strong><br>
+                        "I'll get gas in the morning" = You will be late. Fill up at end of shift.<br>
+                        Excessive idle = Theft risk + Engine wear. Lock it or lose it.
+                    </div>
+                </div>
+
+                <!-- TAB 3: IT & HARDWARE -->
+                <div id="it" class="tab-content">
+                    <h2>IT Hardware & Partitions</h2>
+                    
+                    <div class="dashboard-grid" style="padding:0; gap:20px;">
+                        <!-- Laptop Partition Table -->
+                        <div class="card" style="background:#f9f9f9;">
+                            <h3>Laptop Partition Map</h3>
+                            <p><strong>Billing Laptop:</strong> Panasonic Toughbook FZ-55 (Boyd Managed)</p>
+                            
+                            <div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:15px;">
+                                <div style="flex:1; border:1px solid #ddd; background:white; padding:15px; border-radius:6px;">
+                                    <strong style="color:var(--primary-color); font-size:1.1rem;">Dell 1</strong>
+                                    <hr style="margin:10px 0;">
+                                    <ul style="padding-left:20px;">
+                                        <li>BMW</li>
+										<li>Volvo</li>
+                                        <li>Nissan / Mitsubishi / Subaru</li>
+                                        <li>Honda</li>
+										<li>GM</li>
+										<li>Ford</li>
+                                        <li><strong>Mazda IDS</strong></li>
+                                        <li><strong>ODIS (VW/Audi)</strong></li>
+                                        <li>JLR</li>
+										<li>Toyota</li>
+                                    </ul>
+                                </div>
+
+                                <div style="flex:1; border:1px solid #ddd; background:white; padding:15px; border-radius:6px;">
+                                    <strong style="color:var(--primary-color); font-size:1.1rem;">Dell 2</strong>
+                                    <hr style="margin:10px 0;">
+                                    <ul style="padding-left:20px;">
+                                        <li>BMW</li>
+										<li>Volvo</li>
+                                        <li>Nissan / Mitsubishi / Subaru</li>
+                                        <li>Honda</li>
+										<li>GM</li>
+										<li>Ford</li>
+                                        <li><strong>Mazda MDSFA</strong></li>
+                                        <li>JLR</li>
+										<li>Toyota</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tablets -->
+                        <div class="card" style="background:#f9f9f9;">
+                            <h3>Tablet Configuration</h3>
+                            <table class="data-table">
+                                <tr><th>Brand</th><th>Model</th><th>Software</th><th>OS</th></tr>
+                                <tr>
+                                    <td>Hyundai</td>
+                                    <td>Galaxy Tab Active SM-T630</td>
+                                    <td>GDS Smart (MNH-02)</td>
+                                    <td>Android 14</td>
+                                </tr>
+                                <tr>
+                                    <td>Kia</td>
+                                    <td>Galaxy Tab Active SM-T630</td>
+                                    <td>KDS 2.0</td>
+                                    <td>Android 15</td>
+                                </tr>
+                                <tr>
+                                    <td>Genesis</td>
+                                    <td>Galaxy Tab Active SM-T630</td>
+                                    <td>GDS Smart (NNG-02)</td>
+                                    <td>Android 15 (VCI2 Code: 0701)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: EMPLOYEE PERKS -->
+                <div id="perks" class="tab-content">
+                    <h2>Employee Discounts</h2>
+                    <p><em>Click codes to copy. Do not share publicly.</em></p>
+                    
+                    <div class="perk-grid">
+                        
+                        <!-- AutoZone -->
+                        <div class="perk-card">
+                            <span class="perk-logo" style="color:#d50000;">AutoZone</span>
+                            <p><strong>Gerber Supplies Account</strong></p>
+                            <p style="font-size:0.85rem;">Must use Commercial Dept (Mon-Fri 8-5). Taxable, COD account.</p>
+                            <div class="perk-code" onclick="navigator.clipboard.writeText('11049257')">PIN: 11049257</div>
+                        </div>
+
+                        <!-- Discount Tire -->
+                        <div class="perk-card">
+                            <span class="perk-logo" style="color:#000;">Discount Tire</span>
+                            <p><strong>Personal Purchase (8% Off)</strong></p>
+                            <p style="font-size:0.85rem;">Must schedule by phone. Use Code for billing.</p>
+                            <div class="perk-code" onclick="navigator.clipboard.writeText('67677')">Code: 67677</div>
+                        </div>
+
+                        <!-- Enterprise -->
+                        <div class="perk-card">
+                            <span class="perk-logo" style="color:#008000;">Enterprise / National</span>
+                            <p><strong>Business Rental Program</strong></p>
+                            <p style="font-size:0.85rem;">For Boyd Group employees only.</p>
+                            <a href="#" class="action-btn" style="display:block; margin-top:15px;">View Emerald Club Flyer</a>
+                        </div>
+
+                        <!-- Verizon -->
+                        <div class="perk-card">
+                            <span class="perk-logo" style="color:#000;">Verizon Wireless</span>
+                            <p><strong>12% Service Discount</strong></p>
+                            <p style="font-size:0.85rem;">Use work email (MASLLC.NET) when registering.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TAB 5: TRAINING (Existing content) -->
+                <div id="training" class="tab-content">
+                    <h2>Training Materials</h2>
+                    <!-- ... existing training links can go here ... -->
+                    <p>See "Admin & Tools" in Operations Manual for additional AMA links.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Copy functionality feedback (for perk codes)
+        document.querySelectorAll('.perk-code').forEach(block => {
+            block.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.style.backgroundColor = '#d4edda'; // Flash Green
+                this.style.borderColor = '#28a745';
+                setTimeout(() => {
+                    this.style.backgroundColor = '#eee';
+                    this.style.borderColor = '#ddd';
+                }, 200);
+            });
+        });
+
+        // Tab Logic (Imported from script.js)
+        function openTab(tabName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("tab-content");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

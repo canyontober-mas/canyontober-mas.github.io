@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations Manual - ADAS OSS</title>
+    <link rel="stylesheet" href="../styles.css"> <!-- Adjust path if in subfolder -->
+</head>
+<body>
+
+    <nav class="sidebar">
+        <img src="../assets/images/index/mas-logo1.jpg" alt="Connect to the vehicle" style="max-width: 250px;">
+        <ul class="nav-links">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="operations.html" class="active">Operations Manual</a></li>
+            <li><a href="toolbox.html">Toolbox</a></li>
+            <li><a href="oem-library.html">OEM Library</a></li>
+            <li><a href="directory.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <h3>Operations Manual</h3>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search SOPs (e.g. 'Drive Upload', 'Wiring Invoice')...">
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            
+            <!-- SECTION 1: FIELD SOPs (The Daily Grind) -->
+            <div class="card" style="grid-column: span 2;"> <!-- Full width -->
+                <h2>Daily Field Workflows</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">1. Arrival & Pre-Scan</div>
+                        <p>Check in with shop manager. Connect VCI. Perform full health scan using OEM software preferred.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">2. Photo Documentation (Google Drive)</div>
+                        <p>Required photos: VIN Plate, Cluster (Engine Running), Damage Area, Setup (Targets in view).</p>
+                        <a href="#" style="color:var(--primary-color)">View Detailed Photo SOP ></a>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">3. Calibration & Post-Scan</div>
+                        <p>Perform cal. Verify light is out. Perform post-scan. Upload screenshots to Drive folder `[RO_Number]`.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: INSURANCE PRICING (Searchable Table) -->
+            <div class="card" style="grid-column: span 2;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2>Insurance Pricing Guidelines</h2>
+                    <input type="text" placeholder="Filter by Carrier..." style="padding:5px;">
+                </div>
+                <p style="font-size:0.9rem; color:#666; margin-bottom:15px;"><em>Last Updated: Jan 02, 2026</em></p>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Insurance Carrier</th>
+                                <th>Hourly Rate</th>
+                                <th>Scan Flat Rate</th>
+                                <th>Notes / Restrictions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>State Farm</strong></td>
+                                <td>$XXX.XX</td>
+                                <td>$XX.00</td>
+                                <td>Requires pre/post scan output files attached to final invoice.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Geico</strong></td>
+                                <td>$XXX.XX</td>
+                                <td>$XX.00</td>
+                                <td>Use "Sublet" code 4921. No markup allowed on parts.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Allstate</strong></td>
+                                <td>$XXX.XX</td>
+                                <td>$XX.00</td>
+                                <td>Contact adjuster for approval if > 2.0 hours.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SECTION 3: SOFTWARE STACK (The How-To) -->
+            <div class="card">
+                <h2>Software & Apps</h2>
+                <!-- Tabs for Software Categories -->
+                <div style="border-bottom:1px solid #ddd; margin-bottom:15px;">
+                    <button style="margin-right:15px; font-weight:bold; border:none; background:none;">Production</button>
+                    <button style="margin-right:15px; color:#999; border:none; background:none;">Admin/HR</button>
+                    <button style="color:#999; border:none; background:none;">IT/Support</button>
+                </div>
+                
+                <ul style="list-style:none; padding-left:0;">
+                    <li style="margin-bottom:10px;"><a href="#"><strong>OPUS / Map Scrub</strong></a><br><small>Billing codes & map report generation.</small></li>
+                    <li style="margin-bottom:10px;"><a href="#"><strong>CCC One</strong></a><br><small>Writing estimates and supplementing.</small></li>
+                    <li style="margin-bottom:10px;"><a href="#"><strong>Google Drive</strong></a><br><small>Naming convention: `YYYY-MM-DD_RO_Last6VIN`.</small></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4: WIRING & REPAIR -->
+            <div class="card">
+                <h2>Wiring & Repairs</h2>
+                <ul style="list-style:none; padding-left:0;">
+                    <li style="margin-bottom:15px;">
+                        <strong>Best Practices</strong><br>
+                        <a href="#">Solder vs Crimp Guide</a> | <a href="#">Heat Shrink Standards</a>
+                    </li>
+                    <li style="margin-bottom:15px;">
+                        <strong>Parts Catalog</strong><br>
+                        <a href="#">View Van Stock List (Terminals/Seals)</a>
+                    </li>
+                    <li>
+                        <strong>Invoicing Wiring</strong><br>
+                        <span style="font-size:0.9rem; color:#666;">Bill as "Labor - Mechanical". List connectors as separate line items.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+	<script src="../script.js"></script> <!-- or src="../script.js" if inside /pages/ folder -->
+</body>
+</html>

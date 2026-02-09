@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADAS One Stop Shop - Dashboard</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- SIDEBAR NAV -->
+    <nav class="sidebar">
+        <img src="assets/images/index/mas-logo1.jpg" alt="Connect to the vehicle" style="max-width: 250px;">
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Dashboard</a></li>
+            <li><a href="pages/operations.html">Operations Manual</a></li>
+            <li><a href="pages/toolbox.html">Toolbox</a></li>
+			<li><a href="pages/oem-library.html">OEM Library</a></li>
+            <li><a href="pages/directory.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        
+        <!-- TOP HEADER -->
+		<header class="top-bar">
+			<h3>Technician Portal</h3>
+			<!-- ... search ... -->
+		<div class="user-profile">Loading...</div> <!-- Script will fill this -->
+		</header>
+		<!-- DYNAMIC ALERT BANNER -->
+		<div id="dynamicAlert" class="alert-banner"></div>
+		<button class="edit-btn" onclick="alert('Admin Feature: Open CMS Modal')">✏️ Edit</button>
+		</div>
+
+        <div class="dashboard-grid">
+            
+            <!-- LEFT COLUMN: APP LAUNCHPAD -->
+            <div class="left-col">
+                <div class="card">
+                    <h2>Quick Launch</h2>
+                    <div class="launchpad">
+                        <a href="https://gerber.calcopilot.com/login" target="_blank" rel="noopener noreferrer" class="launch-icon"><strong>Mobile CoPilot</strong><br><span style="font-size:0.8em">Billing</span></a>
+                        <a href="https://www.cccone.com/19481/workfiles?stage=repairorders&location=all" target="_blank" rel="noopener noreferrer"target="_blank" rel="noopener noreferrer" class="launch-icon"><strong>CCC One</strong><br><span style="font-size:0.8em">Estimates</span></a>
+                        <a href="#" class="launch-icon"><strong>ADAS Map</strong><br><span style="font-size:0.8em">Reports</span></a>
+                        <a href="#" class="launch-icon"><strong>Asset Library</strong><br><span style="font-size:0.8em">Logins</span></a>
+                        <a href="#" class="launch-icon"><strong>Workday</strong><br><span style="font-size:0.8em">Time</span></a>
+                        <a href="#" class="launch-icon"><strong>FreshSvc</strong><br><span style="font-size:0.8em">IT Support</span></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Daily Resources</h2>
+                    <ul>
+                        <li><a href="#">📄 Submit New Invoice</a></li>
+                        <li><a href="#">📷 Upload RO Photos (Drive)</a></li>
+                        <li><a href="#">🔧 View Tool Slide Decks</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: CHANGELOG & UPDATES -->
+            <div class="right-col">
+				<div class="card">
+					<div style="display:flex; justify-content:space-between; align-items:center;">
+						<h2>What's New</h2>
+						<!-- Edit Button Only Visible to Admins (handled by auth.js) -->
+						<a href="pages/admin.html" class="edit-btn">Manage</a> 
+					</div>
+    
+					<!-- DYNAMIC CONTAINER -->
+					<div id="dynamicChangelog">
+						<p>Loading updates...</p>
+					</div>
+				</div>
+            </div>
+        </div>
+
+    </main>
+	 <script src="script.js"></script> <!-- or src="../script.js" if inside /pages/ folder -->
+	 <script src="auth.js"></script>
+	 <script src="cms.js"></script>
+</body>
+</body>
+</body>
+</html>

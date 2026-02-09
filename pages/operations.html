@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operations Manual - MAS</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+    <style>
+        /* Local Tab overrides */
+        .tabs { display: flex; border-bottom: 2px solid #ddd; margin-bottom: 20px; overflow-x: auto; }
+        .tab-btn { padding: 15px 20px; background: none; border: none; font-size: 0.95rem; cursor: pointer; white-space: nowrap; }
+        .tab-btn.active { border-bottom-color: var(--primary-color); font-weight: bold; color: var(--primary-color); }
+        .tab-content { display: none; animation: fadeIn 0.3s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <img src="../assets/images/index/mas-logo1.jpg" alt="Connect to the vehicle" style="max-width: 250px;">
+        <ul class="nav-links">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="operations.html" class="active">Operations Manual</a></li>
+            <li><a href="toolbox.html">Toolbox</a></li>
+            <li><a href="oem-library.html">OEM Library</a></li>
+            <li><a href="directory.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <h3>Operations Manual</h3>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search SOPs, Pricing, or Write-ups...">
+            </div>
+        </header>
+
+        <div class="dashboard-grid" style="display:block;">
+            
+            <div class="card">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab('workflow')">Daily Workflow</button>
+                    <button class="tab-btn" onclick="openTab('admin')">Admin & Tools</button>
+                    <button class="tab-btn" onclick="openTab('pricing')">Pricing & Billing</button>
+                    <button class="tab-btn" onclick="openTab('writeups')">Write-Up Templates</button>
+                    <button class="tab-btn" onclick="openTab('diag')">Diagnostics & Wiring</button>
+                </div>
+
+                <!-- TAB 1: DAILY WORKFLOW -->
+                <div id="workflow" class="tab-content active">
+                    <h2>Technician SOPs & Routine</h2>
+                    
+                    <div class="timeline" style="margin-top:30px;">
+                        <!-- Step 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-title">1. Pre-Arrival & Job Selection</div>
+                            <p><strong>Mobile CoPilot (MCP):</strong> Select jobs from "Submitted OK". Prioritize by submission time.</p>
+                            <p><strong>To-Do:</strong> Review estimate in CCC, check ADAS Think report, and verify tooling/part requirements (bumpers, alignments).</p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-title">2. Arrival & Setup</div>
+                            <p><strong>Visual Inspection:</strong> Check for damage, mods, or aftermarket glass. <br><em>Note: If modified, do not attempt calibration.</em></p>
+                            <p><strong>Scanning:</strong> Install battery support. Save Initial Scan.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-title">3. Calibration & Test Drive</div>
+                            <p><strong>Documentation:</strong> Take screenshots of ALL successful calibrations (Entire screen w/ date/time). If cal fails, document setup and error.</p>
+                            <p><strong>Test Drive:</strong> Verify keys are in hand (not on roof!). Verify functionality.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-title">4. Completion & Invoicing</div>
+                            <p><strong>Post-Scan:</strong> Perform final scan. Save as `RO# - scan after clear`.</p>
+                            <p><strong>Invoice:</strong> Verify all service requests are addressed. Add notes for declined work. Upload all files to Google Drive.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: ADMIN & TOOLS -->
+                <div id="admin" class="tab-content">
+                    <h2>Important Links & Resources</h2>
+                    
+                    <div class="dashboard-grid" style="padding:0; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:15px; margin-bottom:30px;">
+                        <a href="#" class="action-btn">🗺️ <strong>ADAS Map</strong> (Scrubbing)</a>
+                        <a href="#" class="action-btn">💲 <strong>Mobile CoPilot</strong> (Billing)</a>
+                        <a href="#" class="action-btn">🚗 <strong>CCC One Mobile</strong></a>
+                        <a href="#" class="action-btn">🔧 <strong>Collabtic</strong> (Fixes)</a>
+                        <a href="#" class="action-btn">📅 <strong>Google Calendar</strong> (PTO)</a>
+                        <a href="#" class="action-btn">🔐 <strong>Bitwarden</strong> (Passwords)</a>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Gerber WiFi Credentials:</strong><br>
+                        Network: <code>TBG</code> | Pass: <code>Tbg2013w1f1!</code><br>
+                        Network: <code>TBG Shop</code> | Pass: <code>TBG2017!@!</code>
+                    </div>
+
+                    <h3>Training & Education</h3>
+                    <ul style="line-height:1.8;">
+                        <li><a href="#">ODIS AMA (VW/Audi)</a></li>
+                        <li><a href="#">ISTA AMA (BMW/Mini)</a></li>
+                        <li><a href="#">Xentry AMA (Mercedes)</a></li>
+                        <li><a href="#">ASE Recorded Webinars (Full List)</a></li>
+                        <li><a href="#">EV Training - High Voltage Safety</a></li>
+                    </ul>
+
+                    <h3 style="margin-top:20px;">Receipts & Expenses</h3>
+                    <p>Upload all receipts to Google Drive immediately.</p>
+                    <p><strong>Naming Convention:</strong> <code>YYYY-MM-DD_Vendor_Amount</code></p>
+                </div>
+
+                <!-- TAB 3: PRICING & BILLING -->
+                <div id="pricing" class="tab-content">
+                    <h2>Pricing Guidelines</h2>
+
+                    <!-- Base vs Premium -->
+                    <div class="brand-list-container">
+                        <div class="brand-column">
+                            <h4>Base Rate ($195)</h4>
+                            <ul>
+                                <li>Chevy / GM / Buick</li>
+                                <li>Ford / Mercury</li>
+                                <li>Honda / Acura (Check Model)</li>
+                                <li>Hyundai / Kia</li>
+                                <li>Nissan / Infiniti</li>
+                                <li>Toyota / Scion</li>
+                                <li>VW / Subaru / Mazda</li>
+                            </ul>
+                        </div>
+                        <div class="brand-column">
+                            <h4 style="border-color:#d32f2f;">Premium Rate ($225)</h4>
+                            <ul>
+                                <li>Audi / BMW / Mini</li>
+                                <li>Mercedes / Smart</li>
+                                <li>Volvo / Jaguar / LR</li>
+                                <li>Lexus / Genesis</li>
+                                <li>Cadillac / Lincoln</li>
+                                <li>Alfa Romeo / Rolls Royce</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:30px;">Insurance Specific Guidelines</h3>
+                    <p><em>Click to expand rules for each carrier.</em></p>
+
+                    <details>
+                        <summary>GEICO</summary>
+                        <div class="details-content">
+                            <p><strong>Limit:</strong> Can only bill THREE line items (L1, L2, L3). Anything after 3 is free.</p>
+                            <ul>
+                                <li><strong>Hyundai/Kia BSM:</strong> Bill L2 Dynamic ONLY. Do not bill angle verify.</li>
+                                <li><strong>Honda BSM:</strong> Static = L3. Dynamic = L2. No angle verify billing.</li>
+                                <li><strong>Subaru Eyesight:</strong> Bill Static (L3) and Dynamic (L2) separately.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>State Farm</summary>
+                        <div class="details-content">
+                            <p><strong>Stacking:</strong> Allowed across all levels.</p>
+                            <ul>
+                                <li><strong>Hyundai/Kia BSM:</strong> Bill L2 Dynamic ONLY.</li>
+                                <li><strong>Honda BSM:</strong> Bill L2 or L3 depending on method. No angle verify billing.</li>
+                                <li><strong>360 Cameras:</strong> Bill 1 line item regardless of 1 or 4 cameras calibrated.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Allstate</summary>
+                        <div class="details-content">
+                            <ul>
+                                <li><strong>Hyundai/Kia BSM:</strong> Bill 2 lines (Angle Verify + L2 Dynamic) IF measuring angles.</li>
+                                <li><strong>360 Cameras:</strong> Bill 1 line item fixed price.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details>
+                        <summary>Client vs Retail Rates</summary>
+                        <div class="details-content">
+                            <table class="data-table">
+                                <tr><th>Level</th><th>Client</th><th>Retail</th></tr>
+                                <tr><td>Level 1</td><td>$225</td><td>$250</td></tr>
+                                <tr><td>Level 2</td><td>$250</td><td>$325</td></tr>
+                                <tr><td>Level 3a</td><td>$425</td><td>$450</td></tr>
+                                <tr><td>Level 3b</td><td>$475</td><td>$575</td></tr>
+                            </table>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- TAB 4: WRITE-UP TEMPLATES -->
+                <div id="writeups" class="tab-content">
+                    <h2>Write-Up Templates</h2>
+                    <p style="font-size:0.9rem; color:#666;">Click any gray box to copy the text to clipboard.</p>
+
+                    <h3>General & Calibrations</h3>
+                    
+                    <p><strong>Calibration Not Required (Not Equipped):</strong></p>
+                    <div class="copy-block" onclick="navigator.clipboard.writeText(this.innerText)">Customer requests (XYZ) calibration. Scan vehicle using (OE scanner) and supplied the customer with a copy of the results in PDF format. Inspected systems and found the vehicle is not equipped with (XYZ). No further action necessary at this time.</div>
+
+                    <p><strong>Aftermarket Windshield Note:</strong></p>
+                    <div class="copy-block" onclick="navigator.clipboard.writeText(this.innerText)">NOTE: Vehicle is equipped with an aftermarket windshield. Although calibration of the (System Name) has been successfully completed, the aftermarket windshield may affect performance in the future.</div>
+
+                    <p><strong>Failed Operation (Generic):</strong></p>
+                    <div class="copy-block" onclick="navigator.clipboard.writeText(this.innerText)">Customer requests operation inspection of the (Component). Referenced OEM service info. Measure and setup OEM target. Perform operation inspection, unsuccessful. Readings: (Enter Data). Adjustments required.</div>
+
+                    <hr>
+
+                    <h3>Diagnostics</h3>
+                    
+                    <p><strong>Intermittent Fault (Not Active):</strong></p>
+                    <div class="copy-block" onclick="navigator.clipboard.writeText(this.innerText)">Customer states (CONCERN). Scan vehicle using (OE TOOL). Attempt to duplicate concern, unsuccessfully. Fault appears to be intermittent and not currently active. Advise customer fault must be active for further testing.</div>
+
+                    <p><strong>System Reset / Fault Clear:</strong></p>
+                    <div class="copy-block" onclick="navigator.clipboard.writeText(this.innerText)">Customer states (MIL Illuminated). Confirmed complaint. Performed vehicle scan. Necessary to erase fault memory, reset control module, and retest systems. Warning is no longer displayed.</div>
+
+                    <hr>
+                    
+                    <h3>Wiring</h3>
+                    <p><strong>Repaired Damaged Wiring:</strong></p>
+                    <div class="copy-block" onclick="navigator.clipboard.writeText(this.innerText)">Repaired damaged wiring near (LOCATION) of vehicle, per customer request.</div>
+                </div>
+
+                <!-- TAB 5: DIAGNOSTICS & WIRING -->
+                <div id="diag" class="tab-content">
+                    <h2>Diagnostics Best Practices</h2>
+                    <div class="info-box">
+                        <strong>One Hour Rule:</strong> Give yourself 45 mins to 1 hour. If no direction, reach out to #tech-help in Slack.
+                    </div>
+
+                    <ul class="timeline">
+                        <li class="timeline-item"><strong>1. Verify Complaint:</strong> Understand the issue. Check collision context (e.g., left impact = check left headlight wiring).</li>
+                        <li class="timeline-item"><strong>2. Full Scan:</strong> Use OE data to understand code criteria. Check TSBs.</li>
+                        <li class="timeline-item"><strong>3. K.I.S.S. Testing:</strong> Visual inspection first. Then Multimeter. Avoid Power Probes on computer circuits.</li>
+                        <li class="timeline-item"><strong>4. Documentation:</strong> Invoicing must include Complaint, Cause, and Correction (3 C's).</li>
+                    </ul>
+
+                    <hr style="margin:30px 0;">
+
+                    <h2>Wiring Repairs</h2>
+                    <p><strong>Billing Rule:</strong> Minimum 1 Hour Labor (Base or Premium). Separate line items for parts.</p>
+                    
+                    <div class="dashboard-grid" style="padding:0; grid-template-columns: 1fr 1fr; gap:20px;">
+                        <div>
+                            <h4>Sourcing Parts</h4>
+                            <ul>
+                                <li><strong>Van Stock:</strong> Check MAS Wiring Sheet.</li>
+                                <li><strong>HQ Stock:</strong> Request via #wiring in Slack.</li>
+                                <li><strong>Order:</strong> Dealer or Connector Experts (Add shipping to invoice).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Repair Standards</h4>
+                            <ul>
+                                <li><strong>Splicing:</strong> Stagger splices to avoid bulk.</li>
+                                <li><strong>Distance:</strong> Splice 3+ inches away from connector housing.</li>
+                                <li><strong>SRS:</strong> Use OEM repair kits only. Do NOT replace individual terminals on SRS.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>Pricing Markups:</strong><br>
+                        Dealer/Connector Experts parts = Cost x 2.0 (Min $86.67).<br>
+                        HQ/Van Stock = Connector Experts Price x 1.15.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Copy functionality feedback
+        document.querySelectorAll('.copy-block').forEach(block => {
+            block.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                // Visual feedback (flash color)
+                this.style.backgroundColor = '#d4edda';
+                setTimeout(() => {
+                    this.style.backgroundColor = '#f1f3f4';
+                }, 200);
+            });
+        });
+
+        // Tab Logic (Imported from script.js, but inline here for safety in this snippet)
+        function openTab(tabName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("tab-content");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

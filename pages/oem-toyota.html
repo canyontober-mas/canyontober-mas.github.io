@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toyota / Lexus - ADAS OSS</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Local overrides for tabs */
+        .tabs { display: flex; border-bottom: 2px solid #ddd; margin-bottom: 20px; overflow-x: auto; }
+        .tab-btn { padding: 15px 20px; background: none; border: none; font-size: 0.95rem; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
+        .tab-btn.active { border-bottom-color: var(--primary-color); font-weight: bold; color: var(--primary-color); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <!-- Sidebar Navigation -->
+        <img src="../assets/images/index/mas-logo1.jpg" alt="Connect to the vehicle" style="max-width: 250px;">
+        <ul class="nav-links">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="operations.html">Operations Manual</a></li>
+            <li><a href="toolbox.html">Toolbox</a></li>
+            <li><a href="oem-library.html" class="active">OEM Library</a></li>
+            <li><a href="directory.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <h3><a href="oem-library.html" style="text-decoration:none; color:#777;">OEM Library</a> > Toyota & Lexus</h3>
+        </header>
+
+        <div class="dashboard-grid" style="display:block;">
+            
+            <div class="card">
+                <!-- 5 TABS AS REQUESTED -->
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab('job-aids')">Job Aids & SI</button>
+                    <button class="tab-btn" onclick="openTab('terminology')">Terminology</button>
+                    <button class="tab-btn" onclick="openTab('scantool')">Scan Tool & VCI</button>
+                    <button class="tab-btn" onclick="openTab('calibration')">Calibration Setup</button>
+                    <button class="tab-btn" onclick="openTab('security')">Immobilizer/Security</button>
+                </div>
+
+                <!-- TAB 1: JOB AIDS & SI -->
+                <div id="job-aids" class="tab-content active">
+                    <h2>Job Aids & Position Statements</h2>
+                    <br>
+                    <div class="info-box">
+                        <strong>Service Information Access:</strong><br>
+                        <a href="https://techinfo.toyota.com" target="_blank">https://techinfo.toyota.com</a><br>
+                        <em>Use Bitwarden "Multi-User Access" if you do not have a personal GTS+ sub.</em>
+                    </div>
+
+                    <h3>Search Queries (Copy & Paste into TIS)</h3>
+                    <p><strong>Seat Weight Sensor (OCS) Initialization:</strong> Search for collision requirements.</p>
+                    <div class="copy-box" onclick="navigator.clipboard.writeText(this.innerText)">"The vehicle is brought to a workshop for repair due to an accident or collision"</div>
+                    <p><a href="#">Link: Toyota/Lexus SWS Reference "Any Collision" Sheet</a></p>
+                    
+                    <hr style="margin:20px 0; border:0; border-top:1px solid #eee;">
+
+                    <p><strong>Front Recognition Camera:</strong> Search for suspension related requirements.</p>
+                    <div class="copy-box" onclick="navigator.clipboard.writeText(this.innerText)">"Parts relating to the tires or suspension are replaced or adjusted"</div>
+                    <p><em>Check both RM (Repair Manual) and New Car Features manual.</em></p>
+                    <div class="img-placeholder">[Image: Service Info Search Result Example]</div>
+                </div>
+
+                <!-- TAB 2: TERMINOLOGY -->
+                <div id="terminology" class="tab-content">
+                    <h2>Brand Specific Terminology</h2>
+                    <dl class="term-list">
+                        <dt>Adaptive Cruise Control (ACC)</dt>
+                        <dd>Millimeter wave Radar, Dynamic Radar Cruise Control (DRCC)</dd>
+                        
+                        <dt>Blind Spot Monitor (BSM)</dt>
+                        <dd>Blind Spot Warning, Rear Cross Traffic Alert</dd>
+                        
+                        <dt>Lane Keep Assist (LKAS)</dt>
+                        <dd>Front Recognition Camera, Lane Departure Alert</dd>
+                        
+                        <dt>Intuitive Park Assist (IPA)</dt>
+                        <dd>Ultrasonic Sensors, Clearance Warning</dd>
+                        
+                        <dt>Panoramic View Monitor (PVM)</dt>
+                        <dd>360 Cameras, Television Camera</dd>
+
+                        <dt>Occupant Classification System (OCS)</dt>
+                        <dd>Seat Weight Sensor (SWS)</dd>
+                    </dl>
+                    <p><em>NOTE: Toyota/Lexus may use "beam axis adjustment" rather than "calibration."</em></p>
+                </div>
+
+                <!-- TAB 3: SCAN TOOL & VCI -->
+                <div id="scantool" class="tab-content">
+                    <h2>Scan Tool & VCI Usage</h2>
+                    
+                    <div class="dashboard-grid" style="padding:0; grid-template-columns: 1fr 1fr; gap:20px;">
+                        
+                        <!-- LEFT COLUMN -->
+                        <div>
+                            <h3>Hardware Setup</h3>
+                            <ul style="line-height:1.6;">
+                                <li><strong>Laptop:</strong> Dell (Partition: Toyota)</li>
+                                <li><strong>VCI:</strong> Cardaq 3+ or Mongoose Cable</li>
+                                <li><strong>Access:</strong> Single-User Access (Must use personal GTS+ Sub)</li>
+                            </ul>
+                            <img src="../assets/images/toyota/cardaq-3.png" alt="Cardaq 3 +" style="max-width: 300px; border-radius: 8px;">
+							<img src="../assets/images/toyota/gts-plus-icon.png" alt="GTS + Icon" style="max-width: 300px; border-radius: 8px;">
+                        </div>
+
+                        <!-- RIGHT COLUMN -->
+                        <div>
+                            <h3>Software: GTS+</h3>
+                            <div class="warning-box">
+                                <strong>License Warning:</strong><br>
+                                The license can only be active on 1 PC partition at a time.<br>
+                                Hotline License Release: (877) 762-7666
+                            </div>
+                            <p><strong>Update Method:</strong> Run "Agent Lite" application.</p>
+                            <img src="../assets/images/toyota/agent-lite-icon.png" alt="AGENT LITE Icon" style="max-width: 100px; border-radius: 8px;">
+                        </div>
+                    </div>
+
+                    <hr style="margin:20px 0;">
+
+                    <h3>Exceptions: Toyota Supra</h3>
+                    <p>The Supra uses BMW software logic.</p>
+                    <ul>
+                        <li><strong>Software:</strong> Toyota ISTA (Found in SI).</li>
+                        <li><strong>VCI:</strong> Volvo VOE cable or BMW ICOM.</li>
+                    </ul>
+                    <img src="../assets/images/toyota/toyota-ISTA-icon.png" alt="Toyota ISTA Icon" style="max-width: 100px; border-radius: 8px;">
+
+                    <hr style="margin:20px 0;">
+
+                    <h3>Scanning Workflow</h3>
+                    <ol class="timeline" style="margin-top:20px;">
+					<li class="timeline-item">
+                            <div class="timeline-title">Obtaining and printing a scan in GTS+</div>
+                            Connect to the vehicle
+                        </li>
+						<img src="../assets/images/toyota/toyota-connect-to-vehicle.png" alt="Connect to the vehicle" style="max-width: 500px; border-radius: 8px;">
+                        <li class="timeline-item">
+                            <div class="timeline-title">Select Options</div>
+                            Print to PDF. Label: <code>Invoice# Scan before clear</code>.
+                        </li>
+						<img src="../assets/images/toyota/toyota-ISTA-icon.png" alt="Toyota ISTA Icon" style="max-width: 100px; border-radius: 8px;">
+                        <li class="timeline-item">
+                            <div class="timeline-title">Clear DTCs</div>
+                            <em>Note: RoB (Record of Behavior) data only clears if additional info was retrieved.</em>
+                        </li>
+						<img src="../assets/images/toyota/toyota-connect-to-vehicle.png" alt="Connect to the vehicle" style="max-width: 500px; border-radius: 8px;">
+                        <li class="timeline-item">
+                            <div class="timeline-title">Final Health Check</div>
+                            Required to scan all modules again. Print to PDF. Label: <code>Invoice# Scan after clear</code>.
+                        </li>
+                    </ol>
+                    <div class="img-placeholder">[Image: GTS+ Health Check Screen]</div>
+                </div>
+
+                <!-- TAB 4: CALIBRATION SETUP -->
+                <div id="calibration" class="tab-content">
+                    <h2>Calibration References & Calculators</h2>
+                    
+                    <div style="display:flex; gap:15px; margin-bottom:20px;">
+                        <a href="#" class="action-btn" style="background:#e3f2fd; border:1px solid #2196f3;">
+                            📐 <strong>Download LKAS Calculator</strong>
+                        </a>
+                        <a href="#" class="action-btn" style="background:#e3f2fd; border:1px solid #2196f3;">
+                            📐 <strong>Download BSM Calculator</strong>
+                        </a>
+                    </div>
+
+                    <h3>Setup Photos: 360 Camera</h3>
+                    <p><strong>Type:</strong> Mats or Pedestrian Boards (Check Collabtic Article).</p>
+                    <div class="dashboard-grid" style="padding:0; gap:10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                        <div class="img-placeholder">[Front Cam Mat Setup]</div>
+                        <div class="img-placeholder">[Rear Cam Mat Setup]</div>
+                        <div class="img-placeholder">[Adjustment Screen - Before]</div>
+                        <div class="img-placeholder">[Adjustment Screen - After]</div>
+                    </div>
+
+                    <h3>Setup Photos: Backup Camera (Non-360)</h3>
+                    <div class="img-placeholder" style="height:300px;">[Image: Backup Camera Setup & Adj Screen]</div>
+                </div>
+
+                <!-- TAB 5: SECURITY -->
+                <div id="security" class="tab-content">
+                    <h2>Immobilizer & Security (NASTF)</h2>
+                    
+                    <div class="warning-box">
+                        <strong>Billing Info:</strong><br>
+                        Buying a PIN = $100 Line Item + Labor Line.
+                    </div>
+
+                    <h3>VSP / LSID Requirements</h3>
+                    <p>When purchasing PIN codes via NASTF VSP, you must complete the <strong>D1 Form</strong>.</p>
+                    
+                    <h4>Required Photos for D1 Form:</h4>
+                    <ul class="timeline" style="margin-top:15px;">
+                        <li class="timeline-item">Vehicle Owner's Driver's License</li>
+                        <li class="timeline-item">Vehicle Title or Insurance (Name must match DL)</li>
+                        <li class="timeline-item">Vehicle with License Plate visible</li>
+                        <li class="timeline-item">VIN Tag</li>
+                        <li class="timeline-item">Odometer (if available)</li>
+                    </ul>
+
+                    <h3>Programming Notes</h3>
+                    <ul>
+                        <li><strong>All Keys Lost (AKL):</strong> Requires LSID + D1 + PIN Purchase.</li>
+                        <li><strong>Add Key:</strong> Does NOT require LSID if a programmed key is present.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab switching logic
+        function openTab(tabName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("tab-content");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
+	<script src="../script.js"></script> <!-- or src="../script.js" if inside /pages/ folder -->
+</body>
+</html>

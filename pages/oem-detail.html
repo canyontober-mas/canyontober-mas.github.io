@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OEM Detail - MAS Portal</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Load Data and Logic -->
+    <script src="../oem-data.js"></script> 
+    <script src="../auth.js"></script>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <span style="color:red; font-weight:900;">MAS</span> Portal
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="operations.html">Operations Manual</a></li>
+            <li><a href="toolbox.html">Toolbox</a></li>
+            <li><a href="oem-library.html" class="active">OEM Library</a></li>
+            <li><a href="directory.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <!-- Dynamic Breadcrumb -->
+            <h3><a href="oem-library.html" style="text-decoration:none; color:#777;">OEM Library</a> > <span id="headerBrandName">Loading...</span></h3>
+        </header>
+
+        <div class="dashboard-grid" style="display:block;">
+            
+            <div class="card">
+                <!-- TABS -->
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab('job-aids')">Job Aids & SI</button>
+                    <button class="tab-btn" onclick="openTab('terminology')">Terminology</button>
+                    <button class="tab-btn" onclick="openTab('scantool')">Scan Tool & VCI</button>
+                    <button class="tab-btn" onclick="openTab('calibration')">Calibration Setup</button>
+                    <button class="tab-btn" onclick="openTab('security')">Immobilizer/Security</button>
+                </div>
+
+                <!-- TAB 1: JOB AIDS -->
+                <div id="job-aids" class="tab-content active">
+                    <h2>Job Aids & Position Statements</h2>
+                    <br>
+                    <div class="info-box">
+                        <strong>Service Information Access:</strong><br>
+                        <a id="siLink" href="#" target="_blank">Launch SI Website</a><br>
+                        <em id="siNote"></em>
+                    </div>
+                    <h3>Search Queries (Copy & Paste)</h3>
+                    <div id="searchContainer"></div>
+                </div>
+
+                <!-- TAB 2: TERMINOLOGY -->
+                <div id="terminology" class="tab-content">
+                    <h2>Brand Specific Terminology</h2>
+                    <dl class="term-list" id="termList"></dl>
+                </div>
+
+                <!-- TAB 3: SCAN TOOL -->
+                <div id="scantool" class="tab-content">
+                    <h2>Scan Tool & VCI Usage</h2>
+                    <div class="dashboard-grid" style="padding:0; grid-template-columns: 1fr 1fr; gap:20px;">
+                        <div>
+                            <h3>Hardware Setup</h3>
+                            <ul id="hardwareList" style="line-height:1.6;"></ul>
+                        </div>
+                        <div>
+                            <h3>Software: <span id="softName"></span></h3>
+                            <div class="warning-box" id="softWarning"></div>
+                            <p id="softUpdate"></p>
+                        </div>
+                    </div>
+                    <hr style="margin:20px 0;">
+                    <div id="exceptionBox" style="display:none;">
+                        <h3>Exceptions</h3>
+                        <p><strong id="exceptModel"></strong>: <span id="exceptNote"></span></p>
+                    </div>
+                    <h3>Scanning Workflow</h3>
+                    <div class="timeline" id="scanWorkflow"></div>
+                </div>
+
+                <!-- TAB 4: CALIBRATION -->
+                <div id="calibration" class="tab-content">
+                    <h2>Calibration Setup</h2>
+                    <div id="calcButtons" style="display:flex; gap:15px; margin-bottom:20px;"></div>
+                    <p id="calNotes"></p>
+                    <div class="dashboard-grid" id="calImages" style="padding:0; gap:10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));"></div>
+                </div>
+
+                <!-- TAB 5: SECURITY -->
+                <div id="security" class="tab-content">
+                    <h2>Immobilizer & Security</h2>
+                    <div class="warning-box" id="secInfo"></div>
+                    <h3>Requirements</h3>
+                    <ul class="timeline" id="secReqs"></ul>
+                    <p id="secNotes" style="margin-top:20px;"></p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 1. GET BRAND FROM URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const brandKey = urlParams.get('brand'); // e.g. "toyota"
+
+        // 2. LOAD CONTENT
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = oemLibrary[brandKey];
+            
+            if (!data) {
+                document.querySelector('.main-content').innerHTML = "<h1>Brand Not Found</h1><p>Please check the URL or oem-data.js</p>";
+                return;
+            }
+
+            // Fill Header
+            document.getElementById('headerBrandName').innerText = data.brandName;
+
+            // -- TAB 1: JOB AIDS --
+            document.getElementById('siLink').href = data.jobAids.siLink;
+            document.getElementById('siLink').innerText = data.jobAids.siLink;
+            document.getElementById('siNote').innerText = data.jobAids.siNote;
+            
+            const searchCont = document.getElementById('searchContainer');
+            data.jobAids.searchTerms.forEach(item => {
+                searchCont.innerHTML += `
+                    <p><strong>${item.title}:</strong> ${item.note}</p>
+                    <div class="copy-box" onclick="navigator.clipboard.writeText(this.innerText)">${item.copy}</div>
+                    <hr style="margin:10px 0; border:0; border-top:1px solid #eee;">
+                `;
+            });
+
+            // -- TAB 2: TERMINOLOGY --
+            const termList = document.getElementById('termList');
+            if (data.terminology) {
+                data.terminology.forEach(t => {
+                    termList.innerHTML += `<dt>${t.term}</dt><dd>${t.def}</dd>`;
+                });
+            }
+
+            // -- TAB 3: SCAN TOOL --
+            const hwList = document.getElementById('hardwareList');
+            data.scanTool.hardware.forEach(h => hwList.innerHTML += `<li>${h}</li>`);
+            
+            document.getElementById('softName').innerText = data.scanTool.software.name;
+            document.getElementById('softWarning').innerText = data.scanTool.software.warning;
+            document.getElementById('softUpdate').innerText = "Update: " + data.scanTool.software.update;
+
+            if (data.scanTool.exceptions) {
+                document.getElementById('exceptionBox').style.display = 'block';
+                document.getElementById('exceptModel').innerText = data.scanTool.exceptions.model;
+                document.getElementById('exceptNote').innerText = data.scanTool.exceptions.note;
+            }
+
+            const wfDiv = document.getElementById('scanWorkflow');
+            data.scanTool.workflow.forEach(step => {
+                wfDiv.innerHTML += `<div class="timeline-item">${step}</div>`;
+            });
+
+            // -- TAB 4: CALIBRATION --
+            const btnDiv = document.getElementById('calcButtons');
+            if (data.calibration.calculators) {
+                data.calibration.calculators.forEach(c => {
+                    btnDiv.innerHTML += `<a href="${c.url}" class="action-btn">📐 ${c.name}</a>`;
+                });
+            }
+            document.getElementById('calNotes').innerText = data.calibration.setupNotes;
+            
+            const imgGrid = document.getElementById('calImages');
+            if (data.calibration.images) {
+                data.calibration.images.forEach(img => {
+                    // Check if using placeholder or real image
+                    const imgSrc = img.src.includes('http') ? img.src : `../assets/images/${brandKey}/${img.src}`;
+                    imgGrid.innerHTML += `
+                        <div style="text-align:center;">
+                            <div class="img-placeholder" style="background-image:url('${imgSrc}'); background-size:cover; color:transparent;">Img</div>
+                            <small>${img.caption}</small>
+                        </div>
+                    `;
+                });
+            }
+
+            // -- TAB 5: SECURITY --
+            if (data.security) {
+                document.getElementById('secInfo').innerText = data.security.info;
+                document.getElementById('secNotes').innerText = data.security.notes;
+                const secList = document.getElementById('secReqs');
+                data.security.requirements.forEach(r => secList.innerHTML += `<li class="timeline-item">${r}</li>`);
+            }
+        });
+
+        // Tab Logic
+        function openTab(tabName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("tab-content");
+            for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

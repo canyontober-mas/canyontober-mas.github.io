@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MAS Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Specific styles for the login page */
+        body.login-body {
+            background-color: #0d1117; /* Dark tech background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .mas-logo-lg {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .mas-red { color: #d32f2f; }
+        .login-input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-btn:hover { background-color: #004494; }
+        .error-msg {
+            color: red;
+            font-size: 0.9rem;
+            display: none;
+            margin-bottom: 10px;
+        }
+        .reset-mode { display: none; }
+    </style>
+</head>
+<body class="login-body">
+
+    <div class="login-card">
+        <div class="mas-logo-lg"><span class="mas-red">MAS</span> Portal</div>
+        <p style="color:#666; margin-bottom:20px;">Technician Knowledge Base</p>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+            <div id="errorBox" class="error-msg">Invalid credentials.</div>
+            
+            <input type="email" id="email" class="login-input" placeholder="Company Email (techID@mas.com)" required>
+            <input type="password" id="password" class="login-input" placeholder="Password" required>
+            
+            <!-- Force Reset Section (Hidden by default) -->
+            <div id="resetSection" class="reset-mode">
+                <hr style="margin:20px 0;">
+                <p style="font-size:0.9rem; color:#d32f2f;"><strong>First Login:</strong> Please set a new password.</p>
+                <input type="password" id="newPassword" class="login-input" placeholder="New Password">
+                <input type="password" id="confirmPassword" class="login-input" placeholder="Confirm New Password">
+            </div>
+
+            <button type="submit" class="login-btn" id="submitBtn">Sign In</button>
+        </form>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
