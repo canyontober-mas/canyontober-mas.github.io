@@ -51,172 +51,31 @@
                     <button class="tab-btn" onclick="openTab('training')">Training</button>
                 </div>
 
-                <!-- TAB 1: SOFTWARE CENTER (The Giant Table) -->
+				<!-- TAB 1: SOFTWARE CENTER -->
                 <div id="software" class="tab-content active">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                         <h2>Scan Tool Software Levels</h2>
                         <span style="font-size:0.8rem; color:#666;">Last Updated: Jan 2026</span>
-                    </div>
-                    
-                    <div class="table-container" style="max-height: 70vh; overflow-y: auto;">
-                        <table class="data-table sticky-table-header">
-                            <thead>
-                                <tr>
-                                    <th>OEM / Tool</th>
-                                    <th>Current Version</th>
-                                    <th>Date</th>
-                                    <th>Action / Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- TPMS Section -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>TPMS Tools</strong></td></tr>
-                                <tr>
-                                    <td>Bartec 400SD</td>
-                                    <td>R63.2</td>
-                                    <td>5/1/24</td>
-                                    <td><span class="status-red">Not Supported</span> Request Replacement</td>
-                                </tr>
-                                <tr>
-                                    <td>Bartec 400Pro/500</td>
-                                    <td>R67/R7.0</td>
-                                    <td>5/1/24</td>
-                                    <td><span class="status-warning">EOL 12/24</span></td>
-                                </tr>
-                                
-                                <!-- BMW -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>BMW / Mini</strong></td></tr>
-                                <tr>
-                                    <td>BMW ISTA</td>
-                                    <td>4.56.31</td>
-                                    <td>11/20/25</td>
-                                    <td><a href="#">Update Instructions</a> | ICOM FW: 04-25-42</td>
-                                </tr>
-
-                                <!-- Ford -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Ford / Lincoln</strong></td></tr>
-                                <tr>
-                                    <td>Ford IDS</td>
-                                    <td>132.04 Full</td>
-                                    <td>11/18/25</td>
-                                    <td><a href="#">Download</a> | <span class="status-warning">Install First</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Ford FDRS</td>
-                                    <td>46.5.8</td>
-                                    <td>12/16/25</td>
-                                    <td><a href="#">Download</a> | Works with VCM2/3 or Cardaq 3+</td>
-                                </tr>
-
-                                <!-- GM -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>General Motors</strong></td></tr>
-                                <tr>
-                                    <td>Techline Connect</td>
-                                    <td>25.7.28.0</td>
-                                    <td>7/28/25</td>
-                                    <td>Launch via AC Delco Portal</td>
-                                </tr>
-
-                                <!-- Honda -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Honda / Acura</strong></td></tr>
-                                <tr>
-                                    <td>iHDS</td>
-                                    <td>1.013.003</td>
-                                    <td>1/8/26</td>
-                                    <td><a href="#">Download Manager 2.0</a></td>
-                                </tr>
-
-                                <!-- Hyundai/Kia -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Hyundai / Kia / Genesis</strong></td></tr>
-                                <tr>
-                                    <td>Hyundai GDS Smart</td>
-                                    <td>MNH-02-0056</td>
-                                    <td>9/18/24</td>
-                                    <td>Check Weekly for Updates</td>
-                                </tr>
-                                <tr>
-                                    <td>Kia KDS 2.0</td>
-                                    <td>M-N-K-01-0290</td>
-                                    <td>4/12/24</td>
-                                    <td><a href="#">Update Link</a></td>
-                                </tr>
-
-                                <!-- JLR -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Jaguar Land Rover</strong></td></tr>
-                                <tr>
-                                    <td>JLR SDD</td>
-                                    <td>169.00</td>
-                                    <td>1/6/26</td>
-                                    <td><span class="status-warning">Pathfinder EOL</span> | <a href="#">Download Page</a></td>
-                                </tr>
-
-                                <!-- Mazda -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Mazda</strong></td></tr>
-                                <tr>
-                                    <td>Mazda IDS</td>
-                                    <td>141.00 Full</td>
-                                    <td>12/2/25</td>
-                                    <td>Uninstall Old -> Install New</td>
-                                </tr>
-                                <tr>
-                                    <td>MDARS</td>
-                                    <td>7.8.0</td>
-                                    <td>2/26/24</td>
-                                    <td>Updates on Launch</td>
-                                </tr>
-
-                                <!-- Mercedes -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Mercedes-Benz</strong></td></tr>
-                                <tr>
-                                    <td>Xentry</td>
-                                    <td>24.12.4</td>
-                                    <td>12/4/24</td>
-                                    <td><span class="status-red">DO NOT RUN NEW VERSION</span> Add-ons OK.</td>
-                                </tr>
-
-                                <!-- Nissan -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Nissan / Infiniti</strong></td></tr>
-                                <tr>
-                                    <td>Consult 3+</td>
-                                    <td>251.20</td>
-                                    <td>8/5/25</td>
-                                    <td><a href="#">Update Guide</a> | Needs Login</td>
-                                </tr>
-
-                                <!-- VAG -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>VW / Audi</strong></td></tr>
-                                <tr>
-                                    <td>ODIS</td>
-                                    <td>25.1.1</td>
-                                    <td>10/8/25</td>
-                                    <td><span class="status-red">NO MAJOR UPDATES IN FIELD</span></td>
-                                </tr>
-
-                                <!-- Toyota -->
-                                <tr style="background-color:#eee;"><td colspan="4"><strong>Toyota / Lexus</strong></td></tr>
-                                <tr>
-                                    <td>Techstream</td>
-                                    <td>V18.00.008</td>
-                                    <td>7/6/23</td>
-                                    <td><span class="status-red">Sundowned</span> Final Version.</td>
-                                </tr>
-                                <tr>
-                                    <td>GTS+</td>
-                                    <td>2025.04.002</td>
-                                    <td>11/24/25</td>
-                                    <td>Use Agent Lite to update.</td>
-                                </tr>
-                                <tr>
-                                    <td>Supra ISTA</td>
-                                    <td>V4.51.23</td>
-                                    <td>3/18/25</td>
-                                    <td><a href="#">Install Guide</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
+					</div>
+					<!-- DYNAMIC SOFTWARE TABLE -->
+					<div class="table-container" style="max-height: 70vh; overflow-y: auto;"> 
+						<table class="data-table sticky-table-header">
+							<thead>
+								<tr>
+									<th style="width: 25%;">OEM / Tool</th>
+									<th style="width: 25%;">Version & Status</th>
+									<th style="width: 15%;">Date</th>
+									<th style="width: 35%;">Downloads & Notes</th>
+								</tr>
+							</thead>
+							<tbody id="softwareTableBody">
+								<!-- JavaScript will insert rows here from software-data.js -->
+								<tr><td colspan="4" style="text-align:center; padding:20px;">Loading software inventory...</td></tr>
+							</tbody>
+						</table>
+					</div> 
+				</div>
+				
                 <!-- TAB 2: FLEET & VAN -->
                 <div id="fleet" class="tab-content">
                     <h2>Fleet & Van Maintenance</h2>
@@ -441,6 +300,10 @@
             document.getElementById(tabName).style.display = "block";
             event.currentTarget.className += " active";
         }
+		
+
     </script>
 </body>
 </html>
+
+<script src="../software-data.js"></script>
