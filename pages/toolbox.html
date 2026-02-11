@@ -21,8 +21,9 @@
 <body>
 
     <nav class="sidebar">
+        <a href="../index.html">
 			<img src="../assets/images/index/mas-logo.png" alt="Mobile Auto Solutions" style="max-width: 225px; padding-top: 15px; padding-left: 15px;">
-        <ul class="nav-links">
+		</a>        <ul class="nav-links">
             <li><a href="../index.html">Dashboard</a></li>
             <li><a href="operations.html">Operations Manual</a></li>
             <li><a href="toolbox.html" class="active">Toolbox</a></li>
@@ -253,27 +254,30 @@
                                 </tr>
                             </table>
                         </div>
-
-                        <!-- Tires & Guidelines -->
-                        <div>
-                            <h3>Tires (Discount Tire)</h3>
-                            <div class="perk-card" style="border-style:solid; border-color:var(--primary-color);">
-                                <span class="perk-logo">Discount / America's Tire</span>
-                                <p><strong>National Account</strong> (10% Off)</p>
-                                <div class="perk-code" onclick="navigator.clipboard.writeText('67677')">Code: 67677</div>
-                                <p style="font-size:0.8rem;">
-                                    Billing: Use Code 67677 (Next-in-line privilege).<br>
-                                    PO Number: Your License Plate.<br>
-                                    <em>Note: Personal purchases must use personal CC.</em>
-                                </p>
-                            </div>
-                            
-                            <h3 style="margin-top:20px;">Preferred Tires</h3>
-                            <ul>
-                                <li><strong>Transit/Promaster:</strong> Firestone Transforce HT</li>
-                                <li><strong>Transit Connect:</strong> Pathfinder HT (Contact RM)</li>
-                            </ul>
-                        </div>
+						<!-- Tires & Guidelines -->
+						<div>
+							<h3>Tires (Discount Tire)</h3>
+    
+							<!-- FIXED: Removed inline style="border..." so it uses the dashed CSS class -->
+							<div class="perk-card">
+								<span class="perk-logo">Discount / America's Tire</span>
+								<p><strong>National Account</strong> (10% Off)</p>
+        
+								<div class="perk-code" onclick="navigator.clipboard.writeText('67677')">Code: 67677</div>
+        
+								<p style="font-size:0.85rem; color:var(--text-muted); line-height: 1.5;">
+									Billing: Use Code 67677 (Next-in-line privilege).<br>
+									PO Number: Your License Plate.<br>
+									<em>Note: Personal purchases must use personal CC.</em>
+								</p>
+							</div>
+    
+							<h3 style="margin-top:24px;">Preferred Tires</h3>
+							<ul style="padding-left:20px; line-height:1.6; color:var(--text-main);">
+								<li style="margin-bottom:8px;"><strong>Transit/Promaster:</strong> Firestone Transforce HT</li>
+								<li><strong>Transit Connect:</strong> Pathfinder HT (Contact RM)</li>
+							</ul>
+						</div>
                     </div>
 
                     <div class="info-box" style="margin-top:20px;">

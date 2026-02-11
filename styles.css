@@ -349,6 +349,33 @@ a:hover {
 }
 
 /* =========================================
+   DISCOUNT/PERK CARDS
+   ========================================= */
+.perk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.perk-card {
+    background: #fff;
+    border: 2px dashed var(--border-subtle);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    transition: all 0.2s;
+}
+.perk-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+.perk-logo { font-size: 1.2rem; font-weight: 800; color: #111; margin-bottom: 12px; display: block; }
+.perk-code {
+    background: #f3f4f6;
+    padding: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    text-align: center;
+    margin: 16px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid var(--border-subtle);
+    transition: background 0.2s;
+}
+.perk-code:hover { background: #e5e7eb; }
+
+/* =========================================
    LAUNCHPAD GRID
    ========================================= */
 .launchpad { 
