@@ -51,6 +51,8 @@
                         <strong>Service Information Access:</strong><br>
                         <a id="siLink" href="#" target="_blank">Launch SI Website</a><br>
                         <em id="siNote"></em>
+                        <br><br>
+                        <a id="docLink" href="#" target="_blank" class="action-btn" style="display:none; background-color:#003399; color:white; padding:8px 15px; border-radius:5px; text-decoration:none;">View Job Aid PDF</a>
                     </div>
                     <h3>OE SI Search Queries (Copy & Paste)</h3>
                     <div id="searchContainer"></div>
@@ -127,6 +129,14 @@
             document.getElementById('siLink').href = data.jobAids.siLink;
             document.getElementById('siLink').innerText = data.jobAids.siLink;
             document.getElementById('siNote').innerText = data.jobAids.siNote;
+
+            // Optional Document Link (Job Aid)
+            if (data.jobAids.docLink) {
+                const docBtn = document.getElementById('docLink');
+                docBtn.href = data.jobAids.docLink;
+                docBtn.innerText = data.jobAids.docName || "View Job Aid";
+                docBtn.style.display = "inline-block";
+            }
             
             const searchCont = document.getElementById('searchContainer');
             data.jobAids.searchTerms.forEach(item => {
@@ -160,9 +170,40 @@
             }
 
             const wfDiv = document.getElementById('scanWorkflow');
-            data.scanTool.workflow.forEach(step => {
-                wfDiv.innerHTML += `<div class="timeline-item">${step}</div>`;
-            });
+            
+            // Check for new 'sections' structure (Ford)
+            if (data.scanTool.sections) {
+                data.scanTool.sections.forEach(section => {
+                    let sectionHtml = `<h3 style="margin-top: 20px; border-bottom: 2px solid #ddd; padding-bottom: 5px;">${section.title}</h3>`;
+                    
+                    section.steps.forEach(step => {
+                        sectionHtml += `<div class="timeline-item"><p>${step.text}</p>`;
+                        
+                        if (step.images && step.images.length > 0) {
+                            sectionHtml += `<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">`;
+                            step.images.forEach(img => {
+                                // Handle full URL vs filename
+                                const imgSrc = img.includes('http') ? img : `../assets/images/${brandKey}/${img}`;
+                                sectionHtml += `
+                                    <div style="text-align: center;">
+                                        <img src="${imgSrc}" style="max-width: 200px; max-height: 150px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;" onclick="window.open(this.src, '_blank')">
+                                    </div>`;
+                            });
+                            sectionHtml += `</div>`;
+                        }
+                        
+                        sectionHtml += `</div>`;
+                    });
+                    
+                    wfDiv.innerHTML += sectionHtml;
+                });
+            }
+            // Fallback to old 'workflow' structure (Toyota/Honda)
+            else if (data.scanTool.workflow) {
+                data.scanTool.workflow.forEach(step => {
+                    wfDiv.innerHTML += `<div class="timeline-item">${step}</div>`;
+                });
+            }
 
             // -- TAB 4: CALIBRATION --
             const btnDiv = document.getElementById('calcButtons');
@@ -180,7 +221,8 @@
                     const imgSrc = img.src.includes('http') ? img.src : `../assets/images/${brandKey}/${img.src}`;
                     imgGrid.innerHTML += `
                         <div style="text-align:center;">
-                            <div class="img-placeholder" style="background-image:url('${imgSrc}'); background-size:cover; color:transparent;">Img</div>
+                            <img src="${imgSrc}" alt="${img.caption}" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:4px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                            <br>
                             <small>${img.caption}</small>
                         </div>
                     `;
